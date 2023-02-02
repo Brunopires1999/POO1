@@ -12,6 +12,18 @@
         public int VelocidadeAtual { get; set; }
         public bool Estepe { get; set; }
 
+        public Pneu(int _aro, int _velocidademaxima, string _tipo, bool _estepe)
+        {
+            Aro = _aro;
+            Tipo = _tipo;   
+            VelocidadeMAxima =     
+            VelocidadeAtual = 0;
+            Estourado = false;
+            TWI = false;
+            Cor = "Preto";
+            PercentualBorracha = 100;
+        }
+
        public void EstourarPneu()
         {
             Estourado = true;
@@ -24,13 +36,13 @@
 
             if(VelocidadeAtual > VelocidadeMAxima || PercentualBorracha <= 30)
             {
-                EstourarPneu()
+                EstourarPneu();
             }
         }
 
-        public void Frear(int _reducao)
+        public void Frear(int _reducao)                                                                           
         {
-            VelocidadeAtual = VelocidadeAtual - _reducao;
+            VelocidadeAtual = VelocidadeAtual - _reducao; 
             PercentualBorracha = PercentualBorracha - 5;
 
             if(PercentualBorracha <= 30)
@@ -39,11 +51,22 @@
             }
             if(VelocidadeAtual < 0)
             {
-                VelocidadeAtual == 0;
+                VelocidadeAtual = 0;
             }
         }
 
-
+        public void Exibir()
+        {
+            Console.WriteLine("Aro: " + Aro);
+            Console.WriteLine("PercentualBorracha: " + PercentualBorracha);
+            Console.WriteLine("Cor: " + Cor);
+            Console.WriteLine("VelocidadeMAxima: " + VelocidadeMAxima);
+            Console.WriteLine("Estepe: " + Estepe);
+            Console.WriteLine("Estourado: " + Estourado);
+            Console.WriteLine("Tipo: " + Tipo);
+            Console.WriteLine("TWI: " + TWI);
+            Console.WriteLine("VelocidadeAtual: " + VelocidadeAtual);
+        }
 
     }
 }
